@@ -21,6 +21,9 @@ public class Characte_controller : MonoBehaviour
 
     Rigidbody2D rb;
 
+    public int maxHealth = 100;
+    public int currentHealth; 
+
 
     void Awake()
     {
