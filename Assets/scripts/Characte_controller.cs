@@ -4,33 +4,77 @@ using UnityEngine;
 
 public class Characte_controller : MonoBehaviour
 {
-    public int speed = 5;
-    // Start is called before the first frame update
-    void Start()
+
+    [Header("Keybinds")]
+    public KeyCode Left;
+    public KeyCode Right;
+    public KeyCode Sprint;
+    public KeyCode Jump;
+
+    [Header("Movement Variables")]
+    public float walk;
+    public float sprint;
+    public float jumpForce;
+
+
+    Rigidbody2D rb;
+
+
+    void awake()
     {
+
+        rb = GetComponent<Rigidbody2D>();
+        rb.freezeRotation = true;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+
+        // Sprinting
+        if (Input.GetKey(Sprint))
         {
-            transform.position += Vector3.left * speed * Time.deltaTime;
+            sprint = 2;
         }
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        else
         {
-            transform.position += Vector3.right * speed * Time.deltaTime;
+            sprint = 1;
         }
 
+        // Left Movement
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.position += Vector3.left * sprint * Time.deltaTime;
+        }
+
+        // Right Movement
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.position += Vector3.right * sprint * Time.deltaTime;
+        }
+
+        //  Jumping
+        if (Input.GetKeyDown(Jump))
+        {
+
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+
+        }
+
+
+        // Shoot
         if (Input.GetMouseButtonDown(0))
         {
             Shoot();
         }
+
     }
+
     void Shoot()
     {
 
 
     }
+
 }
