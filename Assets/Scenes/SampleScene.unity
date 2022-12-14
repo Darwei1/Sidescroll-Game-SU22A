@@ -189,7 +189,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &40925625
@@ -708,7 +708,7 @@ MonoBehaviour:
   Sprint: 304
   walk: 4
   sprint: 0
-  jumpForce: 2
+  jumpForce: 6
   isGrounded: 1
   maxHealth: 100
   currentHealth: 0
