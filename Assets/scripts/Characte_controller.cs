@@ -24,7 +24,6 @@ public class Characte_controller : MonoBehaviour
     {
 
         rb = GetComponent<Rigidbody2D>();
-        rb.freezeRotation = true;
         
     }
 
@@ -43,19 +42,19 @@ public class Characte_controller : MonoBehaviour
         }
 
         // Left Movement
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(Left))
         {
-            transform.position += Vector3.left * sprint * Time.deltaTime;
+            transform.position -= new Vector3(walk, 0 , 0)* sprint * Time.deltaTime;
         }
 
         // Right Movement
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(Right))
         {
-            transform.position += Vector3.right * sprint * Time.deltaTime;
+            transform.position += new Vector3(walk, 0 , 0)* sprint * Time.deltaTime;
         }
 
         //  Jumping
-        if (Input.GetKeyDown(Jump))
+        if (Input.GetKeyDown(KeyCode.W))
         {
 
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -66,7 +65,10 @@ public class Characte_controller : MonoBehaviour
         // Shoot
         if (Input.GetMouseButtonDown(0))
         {
+
+            // Sends signal to start the actuall Shoot code
             Shoot();
+
         }
 
     }

@@ -397,13 +397,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd922a14ce65104ebc1c403e28e3e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Left: 0
-  Right: 0
-  Sprint: 0
-  Jump: 0
-  walk: 0
-  sprint: 0
-  jumpForce: 0
+  Left: 97
+  Right: 100
+  Sprint: 304
+  Jump: 32
+  walk: 11
+  sprint: 15
+  jumpForce: 6
 --- !u!212 &1567567034
 SpriteRenderer:
   m_ObjectHideFlags: 0
