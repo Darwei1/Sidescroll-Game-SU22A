@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character_health : MonoBehaviour
+public class Characte_controller : MonoBehaviour
 {
     public int speed = 5;
     // Start is called before the first frame update
