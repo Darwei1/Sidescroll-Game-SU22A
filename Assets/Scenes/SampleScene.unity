@@ -403,6 +403,7 @@ MonoBehaviour:
   walk: 4
   sprint: 0
   jumpForce: 2
+  isGrounded: 1
   maxHealth: 100
   currentHealth: 0
 --- !u!212 &1567567034

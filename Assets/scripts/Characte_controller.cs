@@ -16,8 +16,7 @@ public class Characte_controller : MonoBehaviour
     public float sprint;
     public float jumpForce;
 
-    [Header("Advanced Movement")]
-    bool isGrounded = true;
+    public bool isGrounded = true;
 
     Rigidbody2D rb;
 
@@ -61,7 +60,7 @@ public class Characte_controller : MonoBehaviour
         }
 
         // Check if the player is on the ground
-        if (isGrounded = true)
+        if (isGrounded)
         {
             // Check for jump input
             if (Input.GetKeyDown(KeyCode.Space))
@@ -87,31 +86,21 @@ public class Characte_controller : MonoBehaviour
 
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-
-        if (collision.gameObject.tag == "Platform")
+        if (collision.transform.CompareTag("Platform"))
         {
-
             isGrounded = true;
-
         }
+        
 
     }
+
 
     void Shoot()
     {
 
-
-    }
-
-    //om personen nuddar ennemy skott
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.layer == LayerMask.NameToLayer(""))
-        {
-           
-        }
 
     }
 
