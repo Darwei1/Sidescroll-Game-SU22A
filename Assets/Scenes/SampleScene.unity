@@ -401,9 +401,9 @@ MonoBehaviour:
   Right: 100
   Sprint: 304
   Jump: 32
-  walk: 11
-  sprint: 15
-  jumpForce: 6
+  walk: 4
+  sprint: 0
+  jumpForce: 2
 --- !u!212 &1567567034
 SpriteRenderer:
   m_ObjectHideFlags: 0

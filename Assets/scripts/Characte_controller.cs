@@ -4,23 +4,25 @@ using UnityEngine;
 
 public class Characte_controller : MonoBehaviour
 {
-
+    // This is for easy change of a keybind 
     [Header("Keybinds")]
     public KeyCode Left;
     public KeyCode Right;
     public KeyCode Sprint;
-    public KeyCode Jump;
-
+    
+    // These are to store the information of the variables
     [Header("Movement Variables")]
     public float walk;
     public float sprint;
     public float jumpForce;
 
+    [Header("Advanced Movement")]
+    bool isGrounded = true;
 
     Rigidbody2D rb;
 
 
-    void awake()
+    void Awake()
     {
 
         rb = GetComponent<Rigidbody2D>();
@@ -44,23 +46,32 @@ public class Characte_controller : MonoBehaviour
         // Left Movement
         if (Input.GetKey(Left))
         {
+            // move the player in the left direction
             transform.position -= new Vector3(walk, 0 , 0)* sprint * Time.deltaTime;
         }
 
         // Right Movement
         else if (Input.GetKey(Right))
         {
+            // Move the player in the right direction
             transform.position += new Vector3(walk, 0 , 0)* sprint * Time.deltaTime;
         }
 
-        //  Jumping
-        if (Input.GetKeyDown(KeyCode.W))
+        // Check if the player is on the ground
+        if (isGrounded)
         {
+            // Check for jump input
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
 
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                // Add force to the player's Rigidbody
+                rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
+                // Set isGrounded to false to prevent multiple jumps
+                isGrounded = false;
+
+            }
         }
-
 
         // Shoot
         if (Input.GetMouseButtonDown(0))
