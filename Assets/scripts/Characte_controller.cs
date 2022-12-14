@@ -61,7 +61,7 @@ public class Characte_controller : MonoBehaviour
         }
 
         // Check if the player is on the ground
-        if (isGrounded)
+        if (isGrounded = true)
         {
             // Check for jump input
             if (Input.GetKeyDown(KeyCode.Space))
@@ -82,6 +82,18 @@ public class Characte_controller : MonoBehaviour
 
             // Sends signal to start the actuall Shoot code
             Shoot();
+
+        }
+
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.tag == "Platform")
+        {
+
+            isGrounded = true;
 
         }
 
