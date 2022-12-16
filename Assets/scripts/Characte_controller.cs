@@ -83,8 +83,6 @@ public class Characte_controller : MonoBehaviour
     {
 
 
-        Bullet bullet = Instantiate(this.bulletPrefab, this.transform.position, this.transform.rotation);
-        bullet.(this.transform.up);
 
     }
 
