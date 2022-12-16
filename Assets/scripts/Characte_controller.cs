@@ -4,24 +4,19 @@ using UnityEngine;
 
 public class Characte_controller : MonoBehaviour
 {
-    public Bullet bulletPrefab;
-
-    // This is for easy change of a keybind 
-    [Header("Keybinds")]
-    public KeyCode Left;
-    public KeyCode Right;
-    public KeyCode Sprint;
-    
     // These are to store the information of the variables
     [Header("Movement Variables")]
     public float walk;
     public float sprint;
     public float jumpForce;
 
+    // checks if the character is grounded
     public bool isGrounded = true;
 
+    // imports rigidbody
     Rigidbody2D rb;
 
+    // Gets the amount of health for our character
     public int maxHealth = 100;
     public int currentHealth; 
 
@@ -29,6 +24,7 @@ public class Characte_controller : MonoBehaviour
     void Awake()
     {
 
+        // gets the component rigidbody2d from the character
         rb = GetComponent<Rigidbody2D>();
         
     }
@@ -37,8 +33,8 @@ public class Characte_controller : MonoBehaviour
     void Update()
     {
 
-        // Sprinting
-        if (Input.GetKey(Sprint))
+        // Sprinting, This basically does so that while we hold shift the sprint will be changed from 1 to 2. Doubling the player speed.
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             sprint = 2;
         }
@@ -48,14 +44,14 @@ public class Characte_controller : MonoBehaviour
         }
 
         // Left Movement
-        if (Input.GetKey(Left))
+        if (Input.GetKey(KeyCode.A))
         {
             // move the player in the left direction
             transform.position -= new Vector3(walk, 0, 0) * sprint * Time.deltaTime;
         }
 
         // Right Movement
-        else if (Input.GetKey(Right))
+        else if (Input.GetKey(KeyCode.D))
         {
             // Move the player in the right direction
             transform.position += new Vector3(walk, 0, 0) * sprint * Time.deltaTime;
@@ -88,9 +84,11 @@ public class Characte_controller : MonoBehaviour
 
 
 
-
+    // Checks for character collision
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
+        // if our character collides with the tag Platform, isGrounded is changed to true.
         if (collision.transform.CompareTag("Platform"))
         {
             isGrounded = true;
