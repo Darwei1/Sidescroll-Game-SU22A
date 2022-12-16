@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Characte_controller : MonoBehaviour
 {
+    public Bullet bulletPrefab;
+
     // This is for easy change of a keybind 
     [Header("Keybinds")]
     public KeyCode Left;
@@ -49,14 +51,14 @@ public class Characte_controller : MonoBehaviour
         if (Input.GetKey(Left))
         {
             // move the player in the left direction
-            transform.position -= new Vector3(walk, 0 , 0)* sprint * Time.deltaTime;
+            transform.position -= new Vector3(walk, 0, 0) * sprint * Time.deltaTime;
         }
 
         // Right Movement
         else if (Input.GetKey(Right))
         {
             // Move the player in the right direction
-            transform.position += new Vector3(walk, 0 , 0)* sprint * Time.deltaTime;
+            transform.position += new Vector3(walk, 0, 0) * sprint * Time.deltaTime;
         }
 
         // Check if the player is on the ground
@@ -74,17 +76,19 @@ public class Characte_controller : MonoBehaviour
 
             }
         }
+    }
 
-        // Shoot
-        if (Input.GetMouseButtonDown(0))
-        {
 
-            // Sends signal to start the actuall Shoot code
-            Shoot();
+    public void Shoot()
+    {
 
-        }
+
+        Bullet bullet = Instantiate(this.bulletPrefab, this.transform.position, this.transform.rotation);
+        bullet.(this.transform.up);
 
     }
+
+
 
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -94,13 +98,6 @@ public class Characte_controller : MonoBehaviour
             isGrounded = true;
         }
         
-
-    }
-
-
-    void Shoot()
-    {
-
 
     }
 
