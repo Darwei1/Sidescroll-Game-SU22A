@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
+    // The speed at which the bullet will move in
+    public float bulletVelocity = 10.0f;
+
     // The speed at which the enemy moves
     public float speed = 1.0f;
 
@@ -71,5 +74,9 @@ public class EnemyAI : MonoBehaviour
         // Instantiate a new bullet at the enemy's position, facing towards the player
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         bullet.transform.right = player.transform.position - transform.position;
+
+        // Set the bullet's velocity
+        Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
+        bulletRigidbody.velocity = bullet.transform.right * bulletVelocity;
     }
 }
