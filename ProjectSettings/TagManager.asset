@@ -12,15 +12,15 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - "\xB4"
   - Water
   - UI
   - Evil
   - Evil shot
   - Player shot
   - Platform
-  - 
-  - 
+  - Player
+  - Bullet
   - 
   - 
   - 
