@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 392913344}
   - component: {fileID: 392913343}
   - component: {fileID: 392913342}
+  - component: {fileID: 392913345}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Evil
@@ -253,6 +254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 637786e1d308c6f45a66a93dd88df23d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
+  bulletVelocity: 10
   speed: 5
   distance: 5
   sightDistance: 5
@@ -306,6 +309,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &392913345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392913339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c9dc497df0e0564ba81393a3eb2e976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDamage: 10
+  maxDamage: 20
 --- !u!1 &546293069
 GameObject:
   m_ObjectHideFlags: 0
