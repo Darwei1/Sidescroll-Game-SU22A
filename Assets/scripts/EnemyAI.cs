@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
+
+    // The amount of health the enemy has
+    public float maxHealth = 100f;
+
+    // The current amount of health the enemy has
+    private float currentHealth;
+
     // The speed at which the bullet will move in
     public float bulletVelocity = 10.0f;
 
@@ -31,6 +38,14 @@ public class EnemyAI : MonoBehaviour
 
     // A timer for tracking when the enemy can fire again
     private float fireTimer = 0.0f;
+
+    // The starting script when the game is launched
+    public void Start()
+    {
+
+        currentHealth = maxHealth;
+        
+    }
 
     // Update is called once per frame
     void Update()
@@ -79,4 +94,23 @@ public class EnemyAI : MonoBehaviour
         Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
         bulletRigidbody.velocity = bullet.transform.right * bulletVelocity;
     }
+
+    // Function for the enemy to take damage
+    public void TakeDamage(float damage)
+    {
+
+        // Reduce the current health of the enemy
+        currentHealth -= damage;
+
+        // if the enemy health reaches below 0 it will die!!
+        if (currentHealth >= 0)
+        {
+
+            Destroy(gameObject);
+
+        }
+
+    }
 }
+
+
